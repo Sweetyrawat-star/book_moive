@@ -1,0 +1,1 @@
+ /Users/sweetyrawat/Desktop/github\ uploaded/book_moive/.dart_tool/flutter_build/704f5985149ad9e8e7955b0cf943177d/native_assets.yaml: 

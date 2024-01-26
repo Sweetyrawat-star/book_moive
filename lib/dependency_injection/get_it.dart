@@ -1,14 +1,18 @@
 
+import 'package:book_moive/Domain/usecase/upComing_moive_video.dart';
+import 'package:book_moive/presentation/blocs/upComibg_moive_images_bloc/upComing_moive_images_bloc.dart';
 import 'package:get_it/get_it.dart';
 import '../Data/remote_source/remote_data_source.dart';
 import '../Data/repository/reposistory_imp.dart';
 import '../Domain/repository/repository.dart';
-import '../Domain/usecase/cityWeatherUseCase.dart';
-import '../Domain/usecase/city_weather_detail_usecase.dart';
+import '../Domain/usecase/upComing_moive_Images_usecase.dart';
+import '../Domain/usecase/upComing_moive_UseCase.dart';
+import '../Domain/usecase/upComing_moive_detail_usecase.dart';
 import '../common/services/dio_client.dart';
-import '../presentation/blocs/city_weather_bloc/city_weather_bloc.dart';
-import '../presentation/blocs/city_weather_detail_bloc/city_weather_detail_bloc.dart';
+
 import '../presentation/blocs/splash_text_bloc/splash_text_bloc.dart';
+import '../presentation/blocs/upComibg_moive_detail_bloc/upComing_moive_detail_bloc.dart';
+import '../presentation/blocs/upComing_moive_bloc/upComing_moive_bloc.dart';
 
 
 final appDi = GetIt.instance;
@@ -35,14 +39,28 @@ void initDi() async {
   ///UseCase DI
   appDi.registerLazySingleton<CityWeatherUseCase>(
           () => CityWeatherUseCase(appDi()));
+  ///UpComing Moive detail Bloc DI
+  appDi.registerLazySingleton<UpComingMoiveVideoslBloc>(
+          () => UpComingMoiveVideoslBloc(appDi()));
 
-  ///city weather detail Bloc DI
-  appDi.registerLazySingleton<CityWeatherDetailBloc>(
-          () => CityWeatherDetailBloc(appDi()));
+  ///UpComing Moive detail detail UseCase DI
+  appDi.registerLazySingleton<UComingMoiveDetailImagesUseCase>(
+          () => UComingMoiveDetailImagesUseCase(appDi()));
 
-  ///city weather detail UseCase DI
-  appDi.registerLazySingleton<CityWeatherDetailUseCase>(
-          () => CityWeatherDetailUseCase(appDi()));
+  ///UpComing Moive detail Bloc DI
+  appDi.registerLazySingleton<UpComingMoiveDetailBloc>(
+          () => UpComingMoiveDetailBloc(appDi()));
+
+  ///UpComing Moive detail detail UseCase DI
+  appDi.registerLazySingleton<UpComingMoiveDetailUseCase>(
+          () => UpComingMoiveDetailUseCase(appDi()));
+  ///UpComing Moive detail Bloc DI
+  appDi.registerLazySingleton<UpComingMoiveVideoslBloc>(
+          () =>UpComingMoiveVideoslBloc(appDi()));
+
+  ///UpComing Moive detail detail UseCase DI
+  appDi.registerLazySingleton<UpComingMoiveVediosUseCase>(
+          () => UpComingMoiveVediosUseCase(appDi()));
 
 
 }

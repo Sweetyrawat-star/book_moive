@@ -1,4 +1,4 @@
-import 'package:book_moive/presentation/view/splashScreen.dart';
+import 'package:book_moive/presentation/view/main_dashboard_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
