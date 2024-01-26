@@ -1,5 +1,6 @@
 
 import 'package:book_moive/presentation/blocs/upComibg_moive_videos_bloc/upComing_moive_videos_state.dart';
+import 'package:book_moive/presentation/view/ReservationPage.dart';
 import 'package:book_moive/presentation/view/widgets/vedio_player_screen.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -192,7 +193,33 @@ class _UpComingMoiveDetailPageBodyState
                                       fontSize: 12,
                                       fontWeight: FontWeight.w500,
                                       letterSpacing: 1.25)));
-                        })),
+                        })),SizedBox(height: 30,),
+
+                Align(
+                  alignment: Alignment.bottomCenter,
+                  child: GestureDetector(
+                    onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const ReservationPage(),
+                            ),
+
+
+                          );
+                    },
+                    child: Container(
+                      height: 40,
+                      width: 120,
+                      decoration: BoxDecoration(
+                          color: orangeColor,
+                          borderRadius: BorderRadius.circular(15.0)),
+                      child: const Center(
+                        child: Text("Book Now"),
+                      ),
+                    ),
+                  ),
+                ),
               ],
             );
           }

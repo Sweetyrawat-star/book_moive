@@ -9,3 +9,9 @@ const splashTextColor = const Color(0xffE3E4E5);
 const greyColor = const Color(0xffE6E6E6);
 const greyDarkColor = const Color(0xffA7A7A7);
 const whiteColor = Color(0xffF6F6F6);
+const white = Color(0xFFffffff);
+const black = Color(0xFF1c1c27);
+const grey = Color(0xFF373741);
+const orange = Color(0xFFffb43a);
+const transparent = Colors.transparent;
+

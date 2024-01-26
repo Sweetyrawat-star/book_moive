@@ -29,35 +29,37 @@ class _trailerwatchState extends State<trailerwatch> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(0.0),
-      child: YoutubePlayer(
-        thumbnail: Image.network(
-          "${"https://img.youtube.com/vi/" + widget.trailerytid.toString()}/hqdefault.jpg",
-          fit: BoxFit.cover,
+    return Material(
+      child: Padding(
+        padding: const EdgeInsets.all(0.0),
+        child: YoutubePlayer(
+          thumbnail: Image.network(
+            "${"https://img.youtube.com/vi/${widget.trailerytid}"}/hqdefault.jpg",
+            fit: BoxFit.cover,
+          ),
+          controlsTimeOut: Duration(milliseconds: 1500),
+          aspectRatio: 16 / 9,
+          controller: _controller,
+          showVideoProgressIndicator: true,
+          bufferIndicator: const Center(
+            child: Center(
+                child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.amber),
+                )),
+          ),
+          progressIndicatorColor: Colors.amber,
+          bottomActions: [
+            CurrentPosition(),
+            ProgressBar(
+                isExpanded: true,
+                colors: const ProgressBarColors(
+                  playedColor: Colors.white,
+                  handleColor: Colors.amber,
+                )),
+            RemainingDuration(),
+            FullScreenButton(),
+          ],
         ),
-        controlsTimeOut: Duration(milliseconds: 1500),
-        aspectRatio: 16 / 9,
-        controller: _controller,
-        showVideoProgressIndicator: true,
-        bufferIndicator: const Center(
-          child: Center(
-              child: CircularProgressIndicator(
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.amber),
-              )),
-        ),
-        progressIndicatorColor: Colors.amber,
-        bottomActions: [
-          CurrentPosition(),
-          ProgressBar(
-              isExpanded: true,
-              colors: ProgressBarColors(
-                playedColor: Colors.white,
-                handleColor: Colors.amber,
-              )),
-          RemainingDuration(),
-          FullScreenButton(),
-        ],
       ),
     );
   }
