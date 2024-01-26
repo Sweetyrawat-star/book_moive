@@ -14,9 +14,9 @@ class UpComingMoiveDetailProgress extends UpComingMoiveDetailState {
 }
 
 class UpComingMoiveDetailSuccess extends UpComingMoiveDetailState {
-  final UpComingMoiveDetails cityWeatherEntity;
+  final UpComingMoiveDetails upComingMoiveEntity;
 
-  UpComingMoiveDetailSuccess(this.cityWeatherEntity);
+  UpComingMoiveDetailSuccess(this.upComingMoiveEntity);
 
 }
 

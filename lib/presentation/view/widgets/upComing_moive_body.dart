@@ -77,7 +77,7 @@ class _UpComingMoiveDetailPageBodyState
             const UpComingMoiveDetailsIndicator();
           }
           if (state is UpComingMoiveDetailSuccess) {
-            DateTime? apiDate = state.cityWeatherEntity.releaseDate;
+            DateTime? apiDate = state.upComingMoiveEntity.releaseDate;
 
             if (apiDate != null) {
               formattedDate = DateFormat('dd-MM-yyyy').format(apiDate);
@@ -95,7 +95,7 @@ class _UpComingMoiveDetailPageBodyState
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(state.cityWeatherEntity.title,
+                    Text(state.upComingMoiveEntity.title,
                         style: const TextStyle(
                             fontFamily: 'open sans',
                             decoration: TextDecoration.none,
@@ -157,7 +157,7 @@ class _UpComingMoiveDetailPageBodyState
                       fontSize: 20,
                       fontWeight: FontWeight.w500,
                     )),
-                Text(state.cityWeatherEntity.overview,
+                Text(state.upComingMoiveEntity.overview,
                     maxLines: 5,
                     overflow: TextOverflow.ellipsis,textAlign: TextAlign.justify,
                     style: const TextStyle(
@@ -174,7 +174,7 @@ class _UpComingMoiveDetailPageBodyState
                     child: ListView.builder(
                         physics: const BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
-                        itemCount: state.cityWeatherEntity.genres.length,
+                        itemCount: state.upComingMoiveEntity.genres.length,
                         itemBuilder: (context, index) {
                           //generes box
                           return Container(
@@ -184,7 +184,7 @@ class _UpComingMoiveDetailPageBodyState
                                   color: const Color.fromRGBO(25, 25, 25, 1),
                                   borderRadius: BorderRadius.circular(10)),
                               child: Text(
-                                  state.cityWeatherEntity.genres[index].name,
+                                  state.upComingMoiveEntity.genres[index].name,
                                   style: const TextStyle(
                                       fontFamily: 'open sans',
                                       decoration: TextDecoration.none,
