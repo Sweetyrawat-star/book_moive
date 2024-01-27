@@ -18,9 +18,10 @@ import 'circularpogressbarIndicator.dart';
 
 class UpComingMoiveDetailPageBody extends StatefulWidget {
   final int id;
+  final String tile;
   const UpComingMoiveDetailPageBody({
     super.key,
-    required this.id,
+    required this.id, required this.tile,
   });
 
   @override
@@ -220,7 +221,7 @@ class _UpComingMoiveDetailPageBodyState
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const ReservationPage(),
+                          builder: (context) =>  ReservationPage(tile: widget.tile,),
                         ),
                       );
                     },

@@ -49,6 +49,7 @@ class _UpComingMoiveScreenState extends State<UpComingMoiveScreen> {
                   ),
                   const SizedBox(height: 40),
                   UpComingMoiveDetailPageBody(
+                    tile: widget.tile,
                     id: widget.id,
                   )
                 ]),

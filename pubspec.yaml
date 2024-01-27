@@ -36,10 +36,12 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   equatable: ^2.0.3
+  ticket_widget: ^0.0.1
   dartx: ^1.1.0
   sqflite: ^2.2.8+4
   dio: ^5.2.1+1
   dartz: ^0.10.1
+  barcode_widget: ^2.0.4
   flutter_bloc: ^8.1.3
   get_it: ^7.6.0
   animated_text_kit: ^4.2.2
@@ -47,8 +49,6 @@ dependencies:
   youtube_player_flutter: ^8.1.1
   visibility_detector: ^0.4.0+2
   intl: ^0.18.1
-  chewie: ^1.7.4
-  video_player: ^2.8.2
   carousel_slider: ^4.2.1
 
 dev_dependencies:

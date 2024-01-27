@@ -1,5 +1,6 @@
 
 import 'package:book_moive/presentation/view/seat_status.dart';
+import 'package:book_moive/presentation/view/widgets/booking_sucessful.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
@@ -7,7 +8,8 @@ import '../../Data/models/models_ticket_booking/seats_model.dart';
 import '../../common/constant/appColorConstant.dart';
 
 class ReservationPage extends StatefulWidget {
-  const ReservationPage({super.key});
+  final String tile;
+  const ReservationPage({super.key, required this.tile});
 
   @override
   State<ReservationPage> createState() => _ReservationPageState();
@@ -317,7 +319,9 @@ class _ReservationPageState extends State<ReservationPage> {
                                 const SizedBox(width: 50),
                                 Expanded(
                                   child: MaterialButton(
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> BookingSuccessful( tile: widget.tile,)));
+                                    },
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(30)),
