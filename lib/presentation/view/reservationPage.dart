@@ -35,7 +35,7 @@ class _ReservationPageState extends State<ReservationPage> {
           },
           child: const Icon(
             Icons.arrow_back_ios,
-            color: white,
+            color: black,
             size: 20,
           ),
         ),

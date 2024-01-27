@@ -19,45 +19,38 @@ class trailerwatch extends StatefulWidget {
 class _trailerwatchState extends State<trailerwatch> {
   late YoutubePlayerController _controller;
   late UpComingMoiveVideoBloc _comingMoiveVideoslBloc;
-  String videoid = "";
+
   bool showDoneButton = false;
 
   @override
   void initState() {
     super.initState();
-
     _comingMoiveVideoslBloc = appDi<UpComingMoiveVideoBloc>();
     _comingMoiveVideoslBloc.add(FetchUpComingMoiveVideosEvent(widget.id));
-    _comingMoiveVideoslBloc.stream.listen((event) {
-      if (event is UpComingMoiveVideosSuccess) {
-        videoid = YoutubePlayer.convertUrlToId(
-            event.upComingMoiveVideo.first['key'])!;
-        _controller = YoutubePlayerController(
-          initialVideoId: videoid.toString(),
-          flags: const YoutubePlayerFlags(
-            enableCaption: true,
-            autoPlay: false,
-            mute: false,
-            forceHD: true,
-          ),
-        );
-
-        _controller.addListener(() {
-          if (_controller.value.isFullScreen) {
-            // Video has ended
-            setState(() {
-              showDoneButton = true;
-            });
-          }
-          if (_controller.value.playerState == PlayerState.ended) {
-            Navigator.pop(context);
-          }
-          if (_controller.value.playerState == PlayerState.playing) {
-            // Video has ended
-            setState(() {
-              showDoneButton = true;
-            });
-          }
+    final videoid = YoutubePlayer.convertUrlToId(widget.trailerytid);
+    _controller = YoutubePlayerController(
+      initialVideoId: videoid.toString(),
+      flags: const YoutubePlayerFlags(
+        enableCaption: true,
+        autoPlay: false,
+        mute: false,
+        // controlsVisibleAtStart: true,
+        forceHD: true,
+      ),
+    );
+    _controller.addListener(() {
+      if (_controller.value.isFullScreen) {
+        // Video has ended
+        setState(() {
+          showDoneButton = true;
+        });
+      }
+      if (_controller.value.playerState == PlayerState.ended) {
+        Navigator.pop(context);
+      }
+      if (_controller.value.playerState == PlayerState.playing) {
+        setState(() {
+          showDoneButton = true;
         });
       }
     });

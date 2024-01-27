@@ -5,6 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../../common/constant/appColorConstant.dart';
 import '../../../dependency_injection/get_it.dart';
@@ -12,6 +13,7 @@ import '../../../dependency_injection/get_it.dart';
 import '../../blocs/upComibg_moive_detail_bloc/upComing_moive_Details_state.dart';
 import '../../blocs/upComibg_moive_detail_bloc/upComing_moive_detail_bloc.dart';
 import '../../blocs/upComibg_moive_images_bloc/upComing_moive_images_bloc.dart';
+import '../../blocs/upComibg_moive_videos_bloc/upComing_moive_videos_bloc.dart';
 import 'circularpogressbarIndicator.dart';
 
 class UpComingMoiveDetailPageBody extends StatefulWidget {
@@ -29,15 +31,28 @@ class UpComingMoiveDetailPageBody extends StatefulWidget {
 class _UpComingMoiveDetailPageBodyState
     extends State<UpComingMoiveDetailPageBody> {
   late UpComingMoiveDetailBloc _upComingMoiveDetailsBloc;
-  late UpComingMoiveImagelBloc _comingMoiveVideoslBloc;
+  late UpComingMoiveImagelBloc _comingMoiveImageslBloc;
+  late UpComingMoiveVideoBloc _comingMoiveVideoslBloc;
   late String formattedDate;
+  String videoid = "";
 
   @override
   void initState() {
     _upComingMoiveDetailsBloc = appDi<UpComingMoiveDetailBloc>();
     _upComingMoiveDetailsBloc.add(FetchUpComingMoiveDetailEvent(widget.id));
-    _comingMoiveVideoslBloc = appDi<UpComingMoiveImagelBloc>();
+    _comingMoiveImageslBloc = appDi<UpComingMoiveImagelBloc>();
+    _comingMoiveImageslBloc.add(FetchUpComingMoiveImagesEvent(widget.id));
+    _comingMoiveVideoslBloc = appDi<UpComingMoiveVideoBloc>();
     _comingMoiveVideoslBloc.add(FetchUpComingMoiveVideosEvent(widget.id));
+    _comingMoiveVideoslBloc.stream.listen((event) {
+      if (event is UpComingMoiveVideosSuccess) {
+        setState(() {
+          videoid = YoutubePlayer.convertUrlToId(
+              event.upComingMoiveVideo.first['key'])!;
+        });
+
+      }
+    });
 
     super.initState();
   }
@@ -53,7 +68,7 @@ class _UpComingMoiveDetailPageBodyState
     return MultiBlocProvider(
       providers: [
         BlocProvider.value(value: _upComingMoiveDetailsBloc),
-        BlocProvider.value(value: _comingMoiveVideoslBloc),
+        BlocProvider.value(value: _comingMoiveImageslBloc),
       ],
       child: BlocConsumer<UpComingMoiveDetailBloc, UpComingMoiveDetailState>(
         listener: (context, state) {
@@ -108,7 +123,7 @@ class _UpComingMoiveDetailPageBodyState
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => trailerwatch(trailerytid: widget.id,id: widget.id,)
+                                builder: (context) => trailerwatch(trailerytid: videoid,id: widget.id,)
 
                                     //MoviePlayerScreen( id: widget.id,),
                               ),);

@@ -10,7 +10,7 @@ class UpComingMoiveImagelBloc
   UpComingMoiveImagelBloc(this._cityWeatherDetailUseCase)
       : super(UpComingMoiveImageInitial()) {
     on<UpComingMoiveVideoEvent>((event, emit) async {
-      if (event is FetchUpComingMoiveVideosEvent) {
+      if (event is FetchUpComingMoiveImagesEvent) {
         emit(UpComingMoiveImageProgress());
         var response =
             await _cityWeatherDetailUseCase(MoiveDetailsId(event.id));

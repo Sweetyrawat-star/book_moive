@@ -25,7 +25,7 @@ class _UpComingMoiveImagesState extends State<UpComingMoiveImages> {
   @override
   void initState() {
     _upComingMoiveImageslBloc = appDi<UpComingMoiveImagelBloc>();
-    _upComingMoiveImageslBloc.add(FetchUpComingMoiveVideosEvent(widget.id));
+    _upComingMoiveImageslBloc.add(FetchUpComingMoiveImagesEvent(widget.id));
 
     super.initState();
   }
