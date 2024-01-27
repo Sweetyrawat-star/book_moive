@@ -4,10 +4,10 @@ import '../../../Domain/usecase/upComing_moive_Images_usecase.dart';
 import 'upComing_moive_images_state.dart';
 part 'upComing_moive_images_event.dart';
 
-class UpComingMoiveVideoslBloc
+class UpComingMoiveImagelBloc
     extends Bloc<UpComingMoiveVideoEvent, UpComingMoiveImagesState> {
   final UComingMoiveDetailImagesUseCase _cityWeatherDetailUseCase;
-  UpComingMoiveVideoslBloc(this._cityWeatherDetailUseCase)
+  UpComingMoiveImagelBloc(this._cityWeatherDetailUseCase)
       : super(UpComingMoiveImageInitial()) {
     on<UpComingMoiveVideoEvent>((event, emit) async {
       if (event is FetchUpComingMoiveVideosEvent) {

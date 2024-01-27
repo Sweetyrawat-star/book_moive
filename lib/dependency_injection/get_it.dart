@@ -12,6 +12,7 @@ import '../common/services/dio_client.dart';
 
 import '../presentation/blocs/splash_text_bloc/splash_text_bloc.dart';
 import '../presentation/blocs/upComibg_moive_detail_bloc/upComing_moive_detail_bloc.dart';
+import '../presentation/blocs/upComibg_moive_videos_bloc/upComing_moive_videos_bloc.dart';
 import '../presentation/blocs/upComing_moive_bloc/upComing_moive_bloc.dart';
 
 
@@ -39,11 +40,11 @@ void initDi() async {
   ///UseCase DI
   appDi.registerLazySingleton<CityWeatherUseCase>(
           () => CityWeatherUseCase(appDi()));
-  ///UpComing Moive detail Bloc DI
-  appDi.registerLazySingleton<UpComingMoiveVideoslBloc>(
-          () => UpComingMoiveVideoslBloc(appDi()));
+  ///UpComing Moive image Bloc DI
+  appDi.registerLazySingleton<UpComingMoiveImagelBloc>(
+          () => UpComingMoiveImagelBloc(appDi()));
 
-  ///UpComing Moive detail detail UseCase DI
+  ///UpComing Moive image UseCase DI
   appDi.registerLazySingleton<UComingMoiveDetailImagesUseCase>(
           () => UComingMoiveDetailImagesUseCase(appDi()));
 
@@ -54,11 +55,12 @@ void initDi() async {
   ///UpComing Moive detail detail UseCase DI
   appDi.registerLazySingleton<UpComingMoiveDetailUseCase>(
           () => UpComingMoiveDetailUseCase(appDi()));
-  ///UpComing Moive detail Bloc DI
-  appDi.registerLazySingleton<UpComingMoiveVideoslBloc>(
-          () =>UpComingMoiveVideoslBloc(appDi()));
 
-  ///UpComing Moive detail detail UseCase DI
+  ///UpComing Moive vedio Bloc DI
+  appDi.registerLazySingleton<UpComingMoiveVideoBloc>(
+          () =>UpComingMoiveVideoBloc (appDi()));
+
+  ///UpComing Moive vedio UseCase DI
   appDi.registerLazySingleton<UpComingMoiveVediosUseCase>(
           () => UpComingMoiveVediosUseCase(appDi()));
 

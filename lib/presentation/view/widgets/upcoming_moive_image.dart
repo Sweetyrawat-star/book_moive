@@ -24,14 +24,14 @@ class UpComingMoiveImages extends StatefulWidget {
 }
 
 class _UpComingMoiveImagesState extends State<UpComingMoiveImages> {
-  late UpComingMoiveVideoslBloc _upComingMoiveImageslBloc;
+  late UpComingMoiveImagelBloc _upComingMoiveImageslBloc;
   double kelvinToCelsius(double kelvin) {
     return kelvin - 273.15;
   }
 
   @override
   void initState() {
-    _upComingMoiveImageslBloc = appDi<UpComingMoiveVideoslBloc>();
+    _upComingMoiveImageslBloc = appDi<UpComingMoiveImagelBloc>();
     _upComingMoiveImageslBloc.add(FetchUpComingMoiveVideosEvent(widget.id));
 
     super.initState();
@@ -46,7 +46,7 @@ class _UpComingMoiveImagesState extends State<UpComingMoiveImages> {
   Widget build(BuildContext context) {
     return BlocProvider.value(
       value:  _upComingMoiveImageslBloc,
-      child: BlocConsumer<UpComingMoiveVideoslBloc, UpComingMoiveImagesState>(
+      child: BlocConsumer<UpComingMoiveImagelBloc, UpComingMoiveImagesState>(
         listener: (context, state) {
           if (state is UpComingMoiveImageInitial ) {
             const UpComingMoiveDetailsIndicator();

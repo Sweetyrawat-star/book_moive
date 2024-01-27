@@ -15,9 +15,9 @@ class UpComingMoiveVideosProgress extends UpComingMoiveVideosState {
 }
 
 class UpComingMoiveVideosSuccess extends UpComingMoiveVideosState {
-  final UpComingMoiveUrl upComingMoiveImages;
+  final UpComingMoiveUrl upComingMoiveVideo;
 
-  UpComingMoiveVideosSuccess(this.upComingMoiveImages);
+  UpComingMoiveVideosSuccess(this.upComingMoiveVideo);
 
 }
 

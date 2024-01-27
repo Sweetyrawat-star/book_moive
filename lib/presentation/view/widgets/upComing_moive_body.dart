@@ -1,4 +1,3 @@
-
 import 'package:book_moive/presentation/blocs/upComibg_moive_videos_bloc/upComing_moive_videos_state.dart';
 import 'package:book_moive/presentation/view/ReservationPage.dart';
 import 'package:book_moive/presentation/view/widgets/vedio_player_screen.dart';
@@ -9,7 +8,6 @@ import 'package:intl/intl.dart';
 
 import '../../../common/constant/appColorConstant.dart';
 import '../../../dependency_injection/get_it.dart';
-
 
 import '../../blocs/upComibg_moive_detail_bloc/upComing_moive_Details_state.dart';
 import '../../blocs/upComibg_moive_detail_bloc/upComing_moive_detail_bloc.dart';
@@ -31,14 +29,14 @@ class UpComingMoiveDetailPageBody extends StatefulWidget {
 class _UpComingMoiveDetailPageBodyState
     extends State<UpComingMoiveDetailPageBody> {
   late UpComingMoiveDetailBloc _upComingMoiveDetailsBloc;
-  late UpComingMoiveVideoslBloc _comingMoiveVideoslBloc;
+  late UpComingMoiveImagelBloc _comingMoiveVideoslBloc;
   late String formattedDate;
 
   @override
   void initState() {
     _upComingMoiveDetailsBloc = appDi<UpComingMoiveDetailBloc>();
     _upComingMoiveDetailsBloc.add(FetchUpComingMoiveDetailEvent(widget.id));
-    _comingMoiveVideoslBloc = appDi<UpComingMoiveVideoslBloc>();
+    _comingMoiveVideoslBloc = appDi<UpComingMoiveImagelBloc>();
     _comingMoiveVideoslBloc.add(FetchUpComingMoiveVideosEvent(widget.id));
 
     super.initState();
@@ -105,18 +103,18 @@ class _UpComingMoiveDetailPageBodyState
                             fontWeight: FontWeight.w500,
                             letterSpacing: 1.25)),
                     GestureDetector(
-                      onTap: (){
-                    /*    _comingMoiveVideoslBloc.add(FetchUpComingMoiveVideosEvent(widget.id));
-                        // Extract the video URL from _comingMoiveVideoslBloc's state
-                        String videoUrl = (_comingMoiveVideoslBloc.state as UpComingMoiveVideosSuccess).upComingMoiveImages.results.first.;
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MoviePlayerScreen(videoUrl: videoUrl),
-                          ),
+                      onTap: () {
+
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MoviePlayerScreen( id: widget.id,),
+                              ),);
 
 
-                        );*/
+
+
+
                       },
                       child: Container(
                         height: 40,
@@ -160,7 +158,8 @@ class _UpComingMoiveDetailPageBodyState
                     )),
                 Text(state.upComingMoiveEntity.overview,
                     maxLines: 5,
-                    overflow: TextOverflow.ellipsis,textAlign: TextAlign.justify,
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.justify,
                     style: const TextStyle(
                       fontFamily: 'open sans',
                       decoration: TextDecoration.none,
@@ -169,7 +168,7 @@ class _UpComingMoiveDetailPageBodyState
                       fontWeight: FontWeight.w500,
                     )),
                 Container(
-                    padding: const EdgeInsets.only( top: 10),
+                    padding: const EdgeInsets.only(top: 10),
                     height: 50,
                     width: MediaQuery.of(context).size.width,
                     child: ListView.builder(
@@ -193,20 +192,20 @@ class _UpComingMoiveDetailPageBodyState
                                       fontSize: 12,
                                       fontWeight: FontWeight.w500,
                                       letterSpacing: 1.25)));
-                        })),SizedBox(height: 30,),
-
+                        })),
+                const SizedBox(
+                  height: 30,
+                ),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: GestureDetector(
-                    onTap: (){
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const ReservationPage(),
-                            ),
-
-
-                          );
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ReservationPage(),
+                        ),
+                      );
                     },
                     child: Container(
                       height: 40,
@@ -236,5 +235,4 @@ class _UpComingMoiveDetailPageBodyState
       ),
     );
   }
-
 }
