@@ -6,13 +6,13 @@ import '../../Data/models/upcoming_moive_details.dart';
 import '../../common/exceptions/app_error.dart';
 import '../repository/repository.dart';
 
-class UpComingMoiveVediosUseCase extends UseCase<UpComingMoiveUrl, MoiveDetailsValue> {
+class UpComingMoiveVediosUseCase extends UseCase<List<Map<String, dynamic>>, MoiveDetailsValue> {
   final  UpComingMoiveReposistory _repo;
 
   UpComingMoiveVediosUseCase(this._repo);
 
   @override
-  Future<Either<AppError, UpComingMoiveUrl>> call(MoiveDetailsValue params) async {
+  Future<Either<AppError, List<Map<String, dynamic>>>> call(MoiveDetailsValue params) async {
     return _repo.getUpComingVideos(params);
   }
 }

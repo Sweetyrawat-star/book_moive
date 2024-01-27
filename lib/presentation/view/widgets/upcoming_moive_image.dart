@@ -1,18 +1,11 @@
-import 'dart:convert';
 
 import 'package:book_moive/presentation/blocs/upComibg_moive_images_bloc/upComing_moive_images_bloc.dart';
 import 'package:book_moive/presentation/blocs/upComibg_moive_images_bloc/upComing_moive_images_state.dart';
-import 'package:book_moive/presentation/view/widgets/temp_list.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-
-import '../../../common/constant/appColorConstant.dart';
 import '../../../dependency_injection/get_it.dart';
-
 import '../../blocs/upComibg_moive_detail_bloc/upComing_moive_Details_state.dart';
-import '../../blocs/upComibg_moive_detail_bloc/upComing_moive_detail_bloc.dart';
 import 'circularpogressbarIndicator.dart';
 
 class UpComingMoiveImages extends StatefulWidget {

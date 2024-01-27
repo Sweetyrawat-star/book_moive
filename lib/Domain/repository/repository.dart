@@ -12,7 +12,7 @@ import '../usecase/upComing_moive_detail_usecase.dart';
 
 abstract class UpComingMoiveReposistory{
   Future<Either<AppError, List<Result>>> getUpComingMoives();
-  Future<Either<AppError, UpComingMoiveUrl>> getUpComingVideos(MoiveDetailsValue params);
+  Future<Either<AppError, List<Map<String, dynamic>> >> getUpComingVideos(MoiveDetailsValue params);
   Future<Either<AppError, UpComingMoiveDetails>> upComingMoiveDetail(MoiveDetails params);
   Future<Either<AppError, UpComingMoiveImagesDetails >> upComingMoiveImages(MoiveDetailsId params);
 

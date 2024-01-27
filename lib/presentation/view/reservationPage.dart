@@ -25,7 +25,7 @@ class _ReservationPageState extends State<ReservationPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: black,
+      backgroundColor: white,
       appBar: AppBar(
         elevation: 0,
         backgroundColor: transparent,
@@ -41,7 +41,7 @@ class _ReservationPageState extends State<ReservationPage> {
         ),
         title: const Text(
           'Select Seats',
-          style: TextStyle(fontSize: 14, color: white),
+          style: TextStyle(fontSize: 14, color: orangeColor),
         ),
         centerTitle: true,
       ),
@@ -79,7 +79,7 @@ class _ReservationPageState extends State<ReservationPage> {
                       child: Container(
                         height: 50,
                         width: MediaQuery.of(context).size.width,
-                        color: orange,
+                        color: orangeColor,
                       ),
                     ),
                   )
@@ -118,9 +118,9 @@ class _ReservationPageState extends State<ReservationPage> {
                                 right: rowIndex == (numCol / 2) - 1 ? 30 : 10),
                             decoration: BoxDecoration(
                                 color: reservedSeats.contains(seatNum)
-                                    ? white
+                                    ? black
                                     : selectedSeats.contains(seatNum)
-                                        ? orange
+                                        ? orangeColor
                                         : grey,
                                 borderRadius: BorderRadius.circular(7.5)),
                           ),
@@ -142,12 +142,12 @@ class _ReservationPageState extends State<ReservationPage> {
               ),
               SizedBox(width: 10),
               SeatStatus(
-                color: orange,
+                color: orangeColor,
                 status: 'Selected',
               ),
               SizedBox(width: 10),
               SeatStatus(
-                color: white,
+                color: black,
                 status: 'Reserved',
               ),
             ],
@@ -158,7 +158,7 @@ class _ReservationPageState extends State<ReservationPage> {
             padding: const EdgeInsets.symmetric(vertical: 35),
             decoration: const BoxDecoration(
               gradient: LinearGradient(
-                colors: [black, grey],
+                colors: [white, orangeColor],
                 stops: [0.5, 1],
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
@@ -172,7 +172,7 @@ class _ReservationPageState extends State<ReservationPage> {
                 const Text(
                   'Select Date and Time',
                   style: TextStyle(
-                      color: white, fontSize: 16, fontWeight: FontWeight.bold),
+                      color: darkBlack, fontSize: 16, fontWeight: FontWeight.bold),
                 ),
                 const SizedBox(height: 35),
                 SingleChildScrollView(
@@ -199,8 +199,8 @@ class _ReservationPageState extends State<ReservationPage> {
                                                   .format(selectedTime) ==
                                               DateFormat('d/M/y')
                                                   .format(items[index])
-                                          ? orange
-                                          : grey,
+                                          ? orangeColor
+                                          : black,
                                       borderRadius: BorderRadius.circular(25)),
                                   child: Column(
                                     children: [
@@ -268,14 +268,14 @@ class _ReservationPageState extends State<ReservationPage> {
                                         : const EdgeInsets.only(right: 20),
                                     padding: const EdgeInsets.all(15),
                                     decoration: BoxDecoration(
-                                        color: grey,
+                                        color: black,
                                         border: Border.all(
                                             width: 2,
                                             color: DateFormat('HH:mm')
                                                         .format(selectedTime)
                                                         .toString() ==
                                                     availableTime[index]
-                                                ? orange
+                                                ? orangeColor
                                                 : transparent),
                                         borderRadius:
                                             BorderRadius.circular(10)),
@@ -302,13 +302,13 @@ class _ReservationPageState extends State<ReservationPage> {
                                     const Text(
                                       'Total Price',
                                       style: TextStyle(
-                                          color: white, fontSize: 12),
+                                          color: black, fontSize: 12),
                                     ),
                                     const SizedBox(height: 10),
                                     Text(
                                       '\$${(selectedSeats.length * 43.5).toStringAsFixed(2)}',
                                       style: const TextStyle(
-                                          color: white,
+                                          color: black,
                                           fontSize: 20,
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -321,7 +321,7 @@ class _ReservationPageState extends State<ReservationPage> {
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
                                             BorderRadius.circular(30)),
-                                    color: orange,
+                                    color: orangeColor,
                                     height: 66,
                                     child: const Center(
                                       child: Text(

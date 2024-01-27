@@ -1,6 +1,6 @@
 import 'package:book_moive/presentation/blocs/upComibg_moive_videos_bloc/upComing_moive_videos_state.dart';
-import 'package:book_moive/presentation/view/ReservationPage.dart';
-import 'package:book_moive/presentation/view/widgets/vedio_player_screen.dart';
+import 'package:book_moive/presentation/view/reservationPage.dart';
+import 'package:book_moive/presentation/view/widgets/trailor.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -108,7 +108,9 @@ class _UpComingMoiveDetailPageBodyState
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MoviePlayerScreen( id: widget.id,),
+                                builder: (context) => trailerwatch(trailerytid: widget.id,id: widget.id,)
+
+                                    //MoviePlayerScreen( id: widget.id,),
                               ),);
 
 

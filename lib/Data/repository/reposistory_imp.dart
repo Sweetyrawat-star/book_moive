@@ -31,7 +31,7 @@ class PostUserReposistoryImpl implements UpComingMoiveReposistory{
     }
   }
   @override
-  Future<Either<AppError,UpComingMoiveUrl>> getUpComingVideos(MoiveDetailsValue params) async {
+  Future<Either<AppError,List<Map<String, dynamic>> >> getUpComingVideos(MoiveDetailsValue params) async {
     try{
       var _response = await _remoteDataSource.getUpComingMoivesVideos(params);
       return Right(_response);

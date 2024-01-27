@@ -24,7 +24,7 @@ class SeatStatus extends StatelessWidget {
         const SizedBox(width: 7),
         Text(
           status,
-          style: TextStyle(fontSize: 14, color: white),
+          style: TextStyle(fontSize: 14, color: black),
         )
       ],
     );

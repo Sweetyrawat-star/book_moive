@@ -14,7 +14,7 @@ import '../models/upcoming_moives.dart';
 
 abstract class RemoteDataSource {
   Future<List<Result>> getUpComingMoives();
-  Future<UpComingMoiveUrl> getUpComingMoivesVideos(MoiveDetailsValue params);
+  Future<List<Map<String, dynamic>>>  getUpComingMoivesVideos(MoiveDetailsValue params);
   Future<UpComingMoiveDetails> upComingMoiveDetail(MoiveDetails params);
   Future<UpComingMoiveImagesDetails > upComingMoiveImages(MoiveDetailsId params);
 }
@@ -39,13 +39,20 @@ class RemoteDataSourceImpl implements RemoteDataSource{
       throw Exception(_response.statusMessage);
     }
   }
-  Future<UpComingMoiveUrl> getUpComingMoivesVideos(MoiveDetailsValue params) async {
+  Future<List<Map<String, dynamic>>> getUpComingMoivesVideos(MoiveDetailsValue params) async {
     final Response _response = await _dioClient.getRequest(endpoint: ApiConstant.getMoiveVideos(params));
+    List<Map<String, dynamic>> movietrailerslist = [];
     if (_response.statusCode == 200 || _response.statusCode == 201) {
-      final dynamicData = _response.data as Map<String,dynamic>;
-      print(dynamicData);
-      final upComingMoiveDetails = UpComingMoiveUrl.fromJson(dynamicData);
-      return upComingMoiveDetails;
+        var movietrailersjson = _response.data as Map<String, dynamic>;
+        for (var i = 0; i < movietrailersjson['results'].length; i++) {
+          if (movietrailersjson['results'][i]['type'] == "Trailer") {
+            movietrailerslist.add({
+              "key": movietrailersjson['results'][i]['key'],
+            });
+          }
+        }
+        movietrailerslist.add({'key': 'aJ0cZTcTh90'});
+      return movietrailerslist;
 
     } else {
       throw Exception(_response.statusMessage);

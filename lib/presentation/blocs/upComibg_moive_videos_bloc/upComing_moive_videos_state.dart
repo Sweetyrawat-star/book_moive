@@ -1,7 +1,4 @@
 
-import '../../../Data/models/upcoming_moive_images_model.dart';
-import '../../../Data/models/upcoming_moive_vedio.dart';
-
 abstract class UpComingMoiveVideosState {
 
 }
@@ -15,7 +12,7 @@ class UpComingMoiveVideosProgress extends UpComingMoiveVideosState {
 }
 
 class UpComingMoiveVideosSuccess extends UpComingMoiveVideosState {
-  final UpComingMoiveUrl upComingMoiveVideo;
+  final List<Map<String, dynamic>>  upComingMoiveVideo;
 
   UpComingMoiveVideosSuccess(this.upComingMoiveVideo);
 
