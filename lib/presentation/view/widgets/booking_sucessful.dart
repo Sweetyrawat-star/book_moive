@@ -7,7 +7,15 @@ import '../../../common/constant/appColorConstant.dart';
 
 class BookingSuccessful extends StatefulWidget {
   final String tile;
-  const BookingSuccessful({super.key, required this.tile});
+  final String ReleaseDate;
+  final List time;
+  final List seat;
+
+  const BookingSuccessful(
+      {super.key,
+      required this.tile,
+      required this.ReleaseDate,
+      required this.seat, required this.time});
 
   @override
   State<BookingSuccessful> createState() => _BookingSuccessfulState();
@@ -57,35 +65,46 @@ class _BookingSuccessfulState extends State<BookingSuccessful> {
                               ),
                             ),
                             const SizedBox(height: 28),
-                            const Row(
+                            Row(
                               children: [
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Release Date',
                                       style: TextStyle(color: black),
                                     ),
-                                    Text('06/12/2024'),
-                                    SizedBox(height: 28),
-                                    Text(
+                                    Text(widget.ReleaseDate),
+                                    const SizedBox(height: 28),
+                                    const Text(
                                       'Time',
                                       style: TextStyle(color: black),
                                     ),
-                                    Text('05:30'),
+                                     Text(widget.time.first),
                                   ],
                                 ),
                                 Spacer(),
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
+                                    const Text(
                                       'Seat Number',
                                       style: TextStyle(color: black),
                                     ),
-                                    Text('51,53'),
-                                    SizedBox(height: 28),
-                                    Text(
+                                    SizedBox(
+                                      height: 20,
+                                      child: Expanded(
+                                        child: ListView.builder(
+                                          shrinkWrap: true,
+                                          scrollDirection: Axis.horizontal,
+                                          itemCount: widget.seat.length,
+                                            itemBuilder: (context, index) {
+                                          return Text(widget.seat[index]);
+                                        }),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 28),
+                                    const Text(
                                       'Mall Name',
                                       style: TextStyle(color: black),
                                     ),
@@ -142,7 +161,7 @@ class _BookingSuccessfulState extends State<BookingSuccessful> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      'Seat',
+                                      'Seat Row',
                                       style: TextStyle(color: black),
                                     ),
                                     Text(

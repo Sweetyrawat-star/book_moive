@@ -9,7 +9,8 @@ import '../../common/constant/appColorConstant.dart';
 
 class ReservationPage extends StatefulWidget {
   final String tile;
-  const ReservationPage({super.key, required this.tile});
+  final String releasedDate;
+  const ReservationPage({super.key, required this.tile, required this.releasedDate});
 
   @override
   State<ReservationPage> createState() => _ReservationPageState();
@@ -320,7 +321,7 @@ class _ReservationPageState extends State<ReservationPage> {
                                 Expanded(
                                   child: MaterialButton(
                                     onPressed: () {
-                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> BookingSuccessful( tile: widget.tile,)));
+                                      Navigator.push(context, MaterialPageRoute(builder: (context)=> BookingSuccessful( tile: widget.tile, ReleaseDate: widget.releasedDate, seat: selectedSeats,time: availableTime,)));
                                     },
                                     shape: RoundedRectangleBorder(
                                         borderRadius:

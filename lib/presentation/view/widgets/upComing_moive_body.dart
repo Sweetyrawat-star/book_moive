@@ -221,7 +221,7 @@ class _UpComingMoiveDetailPageBodyState
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) =>  ReservationPage(tile: widget.tile,),
+                          builder: (context) =>  ReservationPage(tile: widget.tile,releasedDate: formattedDate,),
                         ),
                       );
                     },
